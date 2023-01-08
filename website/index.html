@@ -77,6 +77,18 @@ body {
   border: none;
 }
 
+.userFlexBox{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.userItem{
+  padding: 0px 8px 0px 8px;
+}
+
 .openbtn:hover {
   background-color: #444;
 }
@@ -101,7 +113,13 @@ body {
   <a><img src="logo.png" style="width:50px;height:50px;"> </a>
   <a><img src="shopping-cart.png" style="width:50px;height:50px;"></a>
   <a href="#search">Search______</a>
-  <a href="#login">log in</a>
+  <a id="loginElement" onclick="openDialog()" href="#login">log in</a>
+  <a>
+    <div class="userFlexBox" onclick="() => console.Log('Hello open user things')">
+      <div class="userItem" id="userLogo" style="display: none;"><img src="userLOGO.png" style="width:35px;height:35px;"> </div>
+      <p class="userItem" id="loginName" style="display: none;"></p>
+    </div>
+  </a>
 </div>
 
 <div style="padding-left:50px">
@@ -123,6 +141,16 @@ body {
    
     <h2>Collapsed Sidebar</h2>
     <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p>
+    <dialog id="loginDialog" > 
+      <p>Bei ShoppingStore einloggen</p>
+        <div>
+          <label for = "username">Enter your username: </label>
+          <input type = "text" name = "username" id = "username" required>
+          <label for = "password">Enter your password: </label>
+          <input type = "password" name = "password" id = "password" required>
+          <input type = "submit" value="login" onclick="acceptLogin()">
+        </div>
+    </dialog>
   </div>
   
   <script>
@@ -135,6 +163,35 @@ body {
     document.getElementById("mySidebar").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
   }
+  const loginDialog = document.getElementById("loginDialog");
+
+  function openDialog() {
+    loginDialog.showModal();
+  }
+
+  function acceptLogin() {
+    var usernameHTML = document.getElementById("username");
+    var username = usernameHTML.value;
+    console.log(username);
+    loginDialog.close();
+
+    var loginElement = document.getElementById("loginElement");
+    var loginName = document.getElementById("loginName");
+    var loginLogo = document.getElementById("userLogo");
+
+    loginName.innerText = username;
+
+    loginElement.style.display = "none";
+    loginName.style.display = "flex";
+    loginLogo.style.display = "flex";
+  }
+
+  
+  
+
+  
+  //loginDialog.addEventListener('click',)
+
   </script>
 
 </body>
