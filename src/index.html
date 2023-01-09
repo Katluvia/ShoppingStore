@@ -1,106 +1,105 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="topnav">
-      <a class="openbtn" onclick="openNav()" href="#menu"
-        ><img src="menu.png" style="width: 50px; height: 50px"
-      /></a>
-      <a><img src="logo.png" style="width: 50px; height: 50px" /> </a>
-      <a><img src="shopping-cart.png" style="width: 50px; height: 50px" /></a>
-      <a href="#search">Search______</a>
-      <a id="loginElement" onclick="openDialog()" href="#login">log in</a>
-      <a>
-        <div
-          class="userFlexBox"
-          onclick="() => console.Log('Hello open user things')"
-        >
-          <div class="userItem" id="userLogo" style="display: none">
-            <img src="userLOGO.png" style="width: 35px; height: 35px" />
-          </div>
-          <p class="userItem" id="loginName" style="display: none"></p>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="topnav">
+    <a class="openbtn" onclick="openNav()" href="#menu"><img src="assets/menu.png"
+        style="width: 50px; height: 50px" /></a>
+    <a><img src="assets/logo.png" style="width: 50px; height: 50px" /> </a>
+    <a><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
+    <a href="#search">Search______</a>
+    <a id="loginElement" onclick="openDialog()" href="#login">log in</a>
+    <a>
+      <div class="userFlexBox" onclick="() => console.Log('Hello open user things')">
+        <div class="userItem" id="userLogo" style="display: none">
+          <img src="assets/userLOGO.png" style="width: 35px; height: 35px" />
         </div>
-      </a>
-    </div>
+        <p class="userItem" id="loginName" style="display: none"></p>
+      </div>
+    </a>
+  </div>
 
-    
 
-    <!-- sidebar -->
-    <div id="mySidebar" class="sidebar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a href="#">Women</a>
-      <a href="#">Men</a>
-      <a href="#">Unisex</a>
-      <a href="#">Season</a>
-      <a href="#">Language</a>
-    </div>
 
-    <div id="main">
-      
-      <dialog id="loginDialog">
-        <p>Bei ShoppingStore einloggen</p>
-        <div>
-          <label for="username">Enter your username: </label>
-          <input type="text" name="username" id="username" required />
-          <label for="password">Enter your password: </label>
-          <input type="password" name="password" id="password" required />
-          <input type="submit" value="login" onclick="acceptLogin()" />
-        </div>
-      </dialog>
-    </div>
+  <!-- sidebar -->
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="#">Women</a>
+    <a href="#">Men</a>
+    <a href="#">Unisex</a>
+    <a href="#">Season</a>
+    <a href="#">Language</a>
+  </div>
 
-    <script>
-      function openNav() {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-      }
+  <div id="main">
 
-      function closeNav() {
-        document.getElementById("mySidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-      }
-      const loginDialog = document.getElementById("loginDialog");
+    <dialog id="loginDialog">
+      <p>Bei ShoppingStore einloggen</p>
+      <div>
+        <label for="username">Enter your username: </label>
+        <input type="text" name="username" id="username" required />
+        <label for="password">Enter your password: </label>
+        <input type="password" name="password" id="password" required />
+        <input type="submit" value="login" onclick="acceptLogin()" />
+      </div>
+    </dialog>
+  </div>
 
-      function openDialog() {
-        loginDialog.showModal();
-      }
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
 
-      function acceptLogin() {
-        var usernameHTML = document.getElementById("username");
-        var username = usernameHTML.value;
-        console.log(username);
-        loginDialog.close();
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+    }
+    const loginDialog = document.getElementById("loginDialog");
 
-        var loginElement = document.getElementById("loginElement");
-        var loginName = document.getElementById("loginName");
-        var loginLogo = document.getElementById("userLogo");
+    function openDialog() {
+      loginDialog.showModal();
+    }
 
-        loginName.innerText = username;
+    function acceptLogin() {
+      var usernameHTML = document.getElementById("username");
+      var username = usernameHTML.value;
+      console.log(username);
+      loginDialog.close();
 
-        loginElement.style.display = "none";
-        loginName.style.display = "flex";
-        loginLogo.style.display = "flex";
-      }
+      var loginElement = document.getElementById("loginElement");
+      var loginName = document.getElementById("loginName");
+      var loginLogo = document.getElementById("userLogo");
+
+      loginName.innerText = username;
+
+      loginElement.style.display = "none";
+      loginName.style.display = "flex";
+      loginLogo.style.display = "flex";
+    }
 
       //loginDialog.addEventListener('click',)
-    </script>
-    <div class="clothes" id="products">
-      <img src="/clothes/cap1.png" class="products-image" />
-      <img src="/clothes/cap2.png" class="products-image"/>
-      <img src="/clothes/cap3.png" class="products-image"/>
-      <img src="/clothes/coat1.png" class="products-image" />
-      <img src="/clothes/coat2.png" class="products-image" />
-      <img src="/clothes/gloves1.png" class="products-image" />
-      <img src="/clothes/gloves2.png" class="products-image" />
-      <img src="/clothes/pullover1.png" class="products-image" />
-      <img src="/clothes/pullover2.png" class="products-image" />
-      <img src="/clothes/shoes1.png" class="products-image" />
-      <img src="/clothes/trousers1.png" class="products-image" />
-      <img src="/clothes/trousers2.png" class="products-image" />
-      <img src="/clothes/trousers3.png" class="products-image" />
-    </div>
-  </body>
+  </script>
+  <div class="clothes" id="products">
+    <img src="assets/clothes/cap1.png" class="products-image" />
+    <img src="assets/clothes/cap2.png" class="products-image" />
+    <img src="assets/clothes/cap3.png" class="products-image" />
+    <img src="assets/clothes/coat1.png" class="products-image" />
+    <img src="assets/clothes/coat2.png" class="products-image" />
+    <img src="assets/clothes/gloves1.png" class="products-image" />
+    <img src="assets/clothes/gloves2.png" class="products-image" />
+    <img src="assets/clothes/pullover1.png" class="products-image" />
+    <img src="assets/clothes/pullover2.png" class="products-image" />
+    <img src="assets/clothes/shoes1.png" class="products-image" />
+    <img src="assets/clothes/trousers1.png" class="products-image" />
+    <img src="assets/clothes/trousers2.png" class="products-image" />
+    <img src="assets/clothes/trousers3.png" class="products-image" />
+  </div>
+</body>
+
 </html>
