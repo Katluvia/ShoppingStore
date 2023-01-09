@@ -106,3 +106,20 @@ function showWomanShoes() { displayItems([10]); }
 function showWomanTrousers() { displayItems([11, 12, 13]); }
 
 function showAll() { displayItems(Array(14).fill(1, 0, 13).map((el, index) => { return index + 1; })); }
+
+// Product Modal test//
+var modal = document.getElementById("product1");
+var btn = document.getElementById("openP1");
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function () {
+    modal.style.display = "block";
+}
+span.onclick = function () {
+    modal.style.display = "none";
+}
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+//Endtest//
