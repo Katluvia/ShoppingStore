@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="topnav">
+      <a class="openbtn" onclick="openNav()" href="#menu"
+        ><img src="menu.png" style="width: 50px; height: 50px"
+      /></a>
+      <a><img src="logo.png" style="width: 50px; height: 50px" /> </a>
+      <a><img src="shopping-cart.png" style="width: 50px; height: 50px" /></a>
+      <a href="#search">Search______</a>
+      <a id="loginElement" onclick="openDialog()" href="#login">log in</a>
+      <a>
+        <div
+          class="userFlexBox"
+          onclick="() => console.Log('Hello open user things')"
+        >
+          <div class="userItem" id="userLogo" style="display: none">
+            <img src="userLOGO.png" style="width: 35px; height: 35px" />
+          </div>
+          <p class="userItem" id="loginName" style="display: none"></p>
+        </div>
+      </a>
+    </div>
+
+    <div style="padding-left: 50px">
+      <h2>Top Navigation Example</h2>
+      <p>Some content..</p>
+    </div>
+
+    <!-- sidebar -->
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="#">Women</a>
+      <a href="#">Men</a>
+      <a href="#">Unisex</a>
+      <a href="#">Season</a>
+      <a href="#">Language</a>
+    </div>
+
+    <div id="main">
+      <h2>Collapsed Sidebar</h2>
+      <p>
+        Click on the hamburger menu/bar icon to open the sidebar, and push this
+        content to the right.
+      </p>
+      <dialog id="loginDialog">
+        <p>Bei ShoppingStore einloggen</p>
+        <div>
+          <label for="username">Enter your username: </label>
+          <input type="text" name="username" id="username" required />
+          <label for="password">Enter your password: </label>
+          <input type="password" name="password" id="password" required />
+          <input type="submit" value="login" onclick="acceptLogin()" />
+        </div>
+      </dialog>
+    </div>
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+      const loginDialog = document.getElementById("loginDialog");
+
+      function openDialog() {
+        loginDialog.showModal();
+      }
+
+      function acceptLogin() {
+        var usernameHTML = document.getElementById("username");
+        var username = usernameHTML.value;
+        console.log(username);
+        loginDialog.close();
+
+        var loginElement = document.getElementById("loginElement");
+        var loginName = document.getElementById("loginName");
+        var loginLogo = document.getElementById("userLogo");
+
+        loginName.innerText = username;
+
+        loginElement.style.display = "none";
+        loginName.style.display = "flex";
+        loginLogo.style.display = "flex";
+      }
+
+      //loginDialog.addEventListener('click',)
+    </script>
+    <div class="clothes" id="products">
+      <img src="/clothes/cap1.png" class="products-image" />
+      <img src="/clothes/cap2.png" class="products-image"/>
+      <img src="/clothes/cap3.png" class="products-image"/>
+      <img src="/clothes/coat1.png" class="products-image" />
+      <img src="/clothes/coat2.png" class="products-image" />
+      <img src="/clothes/gloves1.png" class="products-image" />
+      <img src="/clothes/gloves2.png" class="products-image" />
+      <img src="/clothes/pullover1.png" class="products-image" />
+      <img src="/clothes/pullover2.png" class="products-image" />
+      <img src="/clothes/shoes1.png" class="products-image" />
+      <img src="/clothes/trousers1.png" class="products-image" />
+      <img src="/clothes/trousers2.png" class="products-image" />
+      <img src="/clothes/trousers3.png" class="products-image" />
+    </div>
+  </body>
+</html>
