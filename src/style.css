@@ -7,6 +7,9 @@ body {
 .topnav {
   overflow: hidden;
   background-color: #333;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
 
 .topnav a {
@@ -28,7 +31,6 @@ body {
   color: white;
 }
 
-/* sidebar */
 .sidebar {
   height: 100%;
   width: 0;

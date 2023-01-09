@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <title>G11: Shopping Store</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <!-- Navbar -->
   <div class="topnav">
-    <a class="openbtn" onclick="openNav()" href="#menu"><img src="assets/menu.png"
-        style="width: 50px; height: 50px" /></a>
+    <a class="openbtn" onclick="openNav()"><img src="assets/menu.png" style="width: 50px; height: 50px" /></a>
     <a><img src="assets/logo.png" style="width: 50px; height: 50px" /> </a>
-    <a><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
-    <a href="#search">Search______</a>
-    <a id="loginElement" onclick="openDialog()" href="#login">log in</a>
+    <a id="cart" onclick="openCart()"><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
+    <a>Search ______</a>
+    <a id="loginElement" onclick="openDialog()">Login</a>
     <a>
       <div class="userFlexBox" onclick="() => console.Log('Hello open user things')">
         <div class="userItem" id="userLogo" style="display: none">
@@ -24,9 +26,19 @@
     </a>
   </div>
 
+  <!-- Login Modal -->
+  <dialog id="loginDialog">
+    <p>Bei ShoppingStore einloggen</p>
+    <div>
+      <label for="username">Enter your username: </label>
+      <input type="text" name="username" id="username" required />
+      <label for="password">Enter your password: </label>
+      <input type="password" name="password" id="password" required />
+      <input type="submit" value="login" onclick="acceptLogin()" />
+    </div>
+  </dialog>
 
-
-  <!-- sidebar -->
+  <!-- Sidebar -->
   <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     <a href="#">Women</a>
@@ -36,70 +48,28 @@
     <a href="#">Language</a>
   </div>
 
+  <!-- Main display -->
   <div id="main">
-
-    <dialog id="loginDialog">
-      <p>Bei ShoppingStore einloggen</p>
-      <div>
-        <label for="username">Enter your username: </label>
-        <input type="text" name="username" id="username" required />
-        <label for="password">Enter your password: </label>
-        <input type="password" name="password" id="password" required />
-        <input type="submit" value="login" onclick="acceptLogin()" />
-      </div>
-    </dialog>
+    <div class="clothes" id="products">
+      <img src="assets/clothes/cap1.png" class="products-image" />
+      <img src="assets/clothes/cap2.png" class="products-image" />
+      <img src="assets/clothes/cap3.png" class="products-image" />
+      <img src="assets/clothes/coat1.png" class="products-image" />
+      <img src="assets/clothes/coat2.png" class="products-image" />
+      <img src="assets/clothes/gloves1.png" class="products-image" />
+      <img src="assets/clothes/gloves2.png" class="products-image" />
+      <img src="assets/clothes/pullover1.png" class="products-image" />
+      <img src="assets/clothes/pullover2.png" class="products-image" />
+      <img src="assets/clothes/shoes1.png" class="products-image" />
+      <img src="assets/clothes/trousers1.png" class="products-image" />
+      <img src="assets/clothes/trousers2.png" class="products-image" />
+      <img src="assets/clothes/trousers3.png" class="products-image" />
+    </div>
   </div>
 
-  <script>
-    function openNav() {
-      document.getElementById("mySidebar").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
-    }
+  <!-- JS Scripts -->
+  <script src="App.js"></script>
 
-    function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
-      document.getElementById("main").style.marginLeft = "0";
-    }
-    const loginDialog = document.getElementById("loginDialog");
-
-    function openDialog() {
-      loginDialog.showModal();
-    }
-
-    function acceptLogin() {
-      var usernameHTML = document.getElementById("username");
-      var username = usernameHTML.value;
-      console.log(username);
-      loginDialog.close();
-
-      var loginElement = document.getElementById("loginElement");
-      var loginName = document.getElementById("loginName");
-      var loginLogo = document.getElementById("userLogo");
-
-      loginName.innerText = username;
-
-      loginElement.style.display = "none";
-      loginName.style.display = "flex";
-      loginLogo.style.display = "flex";
-    }
-
-      //loginDialog.addEventListener('click',)
-  </script>
-  <div class="clothes" id="products">
-    <img src="assets/clothes/cap1.png" class="products-image" />
-    <img src="assets/clothes/cap2.png" class="products-image" />
-    <img src="assets/clothes/cap3.png" class="products-image" />
-    <img src="assets/clothes/coat1.png" class="products-image" />
-    <img src="assets/clothes/coat2.png" class="products-image" />
-    <img src="assets/clothes/gloves1.png" class="products-image" />
-    <img src="assets/clothes/gloves2.png" class="products-image" />
-    <img src="assets/clothes/pullover1.png" class="products-image" />
-    <img src="assets/clothes/pullover2.png" class="products-image" />
-    <img src="assets/clothes/shoes1.png" class="products-image" />
-    <img src="assets/clothes/trousers1.png" class="products-image" />
-    <img src="assets/clothes/trousers2.png" class="products-image" />
-    <img src="assets/clothes/trousers3.png" class="products-image" />
-  </div>
 </body>
 
 </html>
