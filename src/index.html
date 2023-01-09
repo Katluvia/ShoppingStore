@@ -13,7 +13,7 @@
     <div class="topnav">
         <a class="openbtn" onclick="openNav()"><img src="assets/menu.png" style="width: 50px; height: 50px" /></a>
         <a><img src="assets/logo.png" style="width: 50px; height: 50px" /> </a>
-        <a id="cart" onclick="openCart()"><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
+        <a id="myBtn"><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
         <a>Search ______</a>
         <a id="loginElement" onclick="openDialog()">Login</a>
         <a>
@@ -26,6 +26,18 @@
         </a>
     </div>
 
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p ><b>Shopping Cart</b></p>
+          <p>...</p>
+          <p>€ total</p> <p>Pay</p>
+        </div>
+      
+      </div>
+      
     <!-- Login Modal -->
     <dialog id="loginDialog">
         <p>Bei ShoppingStore einloggen</p>
