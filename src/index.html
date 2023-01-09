@@ -2,123 +2,124 @@
 <html lang="en">
 
 <head>
-    <title>G11: Shopping Store</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css">
+  <title>G11: Shopping Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Navbar -->
-    <div class="topnav">
-        <a class="openbtn" onclick="openNav()"><img src="assets/menu.png" style="width: 50px; height: 50px" /></a>
-        <a><img src="assets/logo.png" style="width: 50px; height: 50px" /> </a>
-        <a id="myBtn"><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
-        <a>Search ______</a>
-        <a id="loginElement" onclick="openDialog()">Login</a>
-        <a>
-            <div class="userFlexBox" onclick="() => console.Log('Hello open user things')">
-                <div class="userItem" id="userLogo" style="display: none">
-                    <img src="assets/userLOGO.png" style="width: 35px; height: 35px" />
-                </div>
-                <p class="userItem" id="loginName" style="display: none"></p>
-            </div>
-        </a>
-    </div>
-
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p ><b>Shopping Cart</b></p>
-          <p>...</p>
-          <p>€ total</p> <p>Pay</p>
+  <!-- Navbar -->
+  <div class="topnav">
+    <a class="openbtn" onclick="openNav()"><img src="assets/menu.png" style="width: 50px; height: 50px" /></a>
+    <a><img src="assets/logo.png" style="width: 50px; height: 50px" /> </a>
+    <a id="myBtn"><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
+    <a>Search ______</a>
+    <a id="loginElement" onclick="openDialog()">Login</a>
+    <a>
+      <div class="userFlexBox" onclick="() => console.Log('Hello open user things')">
+        <div class="userItem" id="userLogo" style="display: none">
+          <img src="assets/userLOGO.png" style="width: 35px; height: 35px" />
         </div>
-      
+        <p class="userItem" id="loginName" style="display: none"></p>
       </div>
-      
-    <!-- Login Modal -->
-    <dialog id="loginDialog">
-        <p>Bei ShoppingStore einloggen</p>
-        <div>
-            <label for="username">Enter your username: </label>
-            <input type="text" name="username" id="username" required />
-            <label for="password">Enter your password: </label>
-            <input type="password" name="password" id="password" required />
-            <input type="submit" value="login" onclick="acceptLogin()" />
-        </div>
-    </dialog>
+    </a>
+  </div>
 
-    <!-- Sidebar -->
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="#" onclick="showAll()">All</a>
-        <a href="#" onclick="toggleWomen()">Women</a>
-        <div class="cloth-category" id="womansection" style="display: none;">
-            <a id="cap" onclick="showWomanCap()">Cap</a>
-            <a id="coat" onclick="showWomanCoat()">Coat</a>
-            <a id="pullover" onclick="showWomanPullover()">Pullover</a>
-            <a id="gloves" onclick="showWomanGloves()">Gloves</a>
-            <a id="trousers" onclick="showWomanTrousers()">Trousers</a>
-            <a id="shoes" onclick="showWomanShoes()">Shoes</a>
-        </div>
+  <div id="myModal" class="modal">
 
-        <a href="#" onclick="toggleMan()">Men</a>
-        <div class="cloth-category" id="mansection" style="display: none;">
-            <a id="cap" onclick="showWomanCap()">Cap</a>
-            <a id="coat" onclick="showWomanCoat()">Coat</a>
-            <a id="pullover" onclick="showWomanPullover()">Pullover</a>
-            <a id="gloves" onclick="showWomanGloves()">Gloves</a>
-            <a id="trousers" onclick="showWomanTrousers()">Trousers</a>
-            <a id="shoes" onclick="showWomanShoes()">Shoes</a>
-        </div>
-
-        <a href="#" onclick="toggleSeason()">Season</a>
-        <div class="cloth-category" id="seasonsection" style="display: none;">
-            <a id="winter" onclick="showAll()">Winter</a>
-        </div>
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p><b>Shopping Cart</b></p>
+      <p>...</p>
+      <p>€ total</p>
+      <p>Pay</p>
     </div>
 
-    <!-- Main display -->
+  </div>
+
+  <!-- Login Modal -->
+  <dialog id="loginDialog">
+    <p>Bei ShoppingStore einloggen</p>
     <div>
-      <div class="clothes" id="products">
-        <div id="openP1">
-          <img src="assets/clothes/cap1.png" class="products-image" />
-        </div>
-        <div id="product1" class="modal">
-          <div class="modal-content">
-            <div class="modal-pic">
-              <img src="assets/clothes/cap1.png" class="product-image-modal" />
-            </div>
-            <div class="product-info">
-              <div class="product-name">Mutze</div>
-              <div class="product-price">9.99 EUR</div>
-              <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-            <span class="close">&times;</span>
-          </div>
-        </div>
-        <img src="assets/clothes/cap1.png" id="product1" class="products-image" />
-        <img src="assets/clothes/cap2.png" id="product2" class="products-image" />
-        <img src="assets/clothes/cap3.png" id="product3" class="products-image" />
-        <img src="assets/clothes/coat1.png" id="product4" class="products-image" />
-        <img src="assets/clothes/coat2.png" id="product5" class="products-image" />
-        <img src="assets/clothes/gloves1.png" id="product6" class="products-image" />
-        <img src="assets/clothes/gloves2.png" id="product7" class="products-image" />
-        <img src="assets/clothes/pullover1.png" id="product8" class="products-image" />
-        <img src="assets/clothes/pullover2.png" id="product9" class="products-image" />
-        <img src="assets/clothes/shoes1.png" id="product10" class="products-image" />
-        <img src="assets/clothes/trousers1.png" id="product11" class="products-image" />
-        <img src="assets/clothes/trousers2.png" id="product12" class="products-image" />
-        <img src="assets/clothes/trousers3.png" id="product13" class="products-image" />
-    
+      <label for="username">Enter your username: </label>
+      <input type="text" name="username" id="username" required />
+      <label for="password">Enter your password: </label>
+      <input type="password" name="password" id="password" required />
+      <input type="submit" value="login" onclick="acceptLogin()" />
+    </div>
+  </dialog>
+
+  <!-- Sidebar -->
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="#" onclick="showAll()">All</a>
+    <a href="#" onclick="toggleWomen()">Women</a>
+    <div class="cloth-category" id="womansection" style="display: none;">
+      <a id="cap" onclick="showWomanCap()">Cap</a>
+      <a id="coat" onclick="showWomanCoat()">Coat</a>
+      <a id="pullover" onclick="showWomanPullover()">Pullover</a>
+      <a id="gloves" onclick="showWomanGloves()">Gloves</a>
+      <a id="trousers" onclick="showWomanTrousers()">Trousers</a>
+      <a id="shoes" onclick="showWomanShoes()">Shoes</a>
+    </div>
+
+    <a href="#" onclick="toggleMan()">Men</a>
+    <div class="cloth-category" id="mansection" style="display: none;">
+      <a id="cap" onclick="showWomanCap()">Cap</a>
+      <a id="coat" onclick="showWomanCoat()">Coat</a>
+      <a id="pullover" onclick="showWomanPullover()">Pullover</a>
+      <a id="gloves" onclick="showWomanGloves()">Gloves</a>
+      <a id="trousers" onclick="showWomanTrousers()">Trousers</a>
+      <a id="shoes" onclick="showWomanShoes()">Shoes</a>
+    </div>
+
+    <a href="#" onclick="toggleSeason()">Season</a>
+    <div class="cloth-category" id="seasonsection" style="display: none;">
+      <a id="winter" onclick="showAll()">Winter</a>
+    </div>
+  </div>
+
+  <!-- Main display -->
+  <div>
+    <div class="clothes" id="products">
+      <div id="openP1">
+        <img src="assets/clothes/cap1.png" class="products-image" />
       </div>
+      <div id="product1" class="modal">
+        <div class="modal-content">
+          <div class="modal-pic">
+            <img src="assets/clothes/cap1.png" class="product-image-modal" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Mutze</div>
+            <div class="product-price">9.99 EUR</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <span class="close">&times;</span>
+        </div>
+      </div>
+      <img src="assets/clothes/cap1.png" id="product1" class="products-image" />
+      <img src="assets/clothes/cap2.png" id="product2" class="products-image" />
+      <img src="assets/clothes/cap3.png" id="product3" class="products-image" />
+      <img src="assets/clothes/coat1.png" id="product4" class="products-image" />
+      <img src="assets/clothes/coat2.png" id="product5" class="products-image" />
+      <img src="assets/clothes/gloves1.png" id="product6" class="products-image" />
+      <img src="assets/clothes/gloves2.png" id="product7" class="products-image" />
+      <img src="assets/clothes/pullover1.png" id="product8" class="products-image" />
+      <img src="assets/clothes/pullover2.png" id="product9" class="products-image" />
+      <img src="assets/clothes/shoes1.png" id="product10" class="products-image" />
+      <img src="assets/clothes/trousers1.png" id="product11" class="products-image" />
+      <img src="assets/clothes/trousers2.png" id="product12" class="products-image" />
+      <img src="assets/clothes/trousers3.png" id="product13" class="products-image" />
+
+    </div>
 
 
 
-        <!-- JS Scripts -->
-        <script src="App.js"></script>
+    <!-- JS Scripts -->
+    <script src="App.js"></script>
 
 </body>
 
