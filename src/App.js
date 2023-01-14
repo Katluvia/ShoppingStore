@@ -1,19 +1,20 @@
 // Get the modal
-var cart_modal = document.getElementById('myModal');
+var cart_modal = document.getElementById('CartID');
+// cart_modal.style.display = 'none';
 
 // Get the button that opens the modal
-var btn = document.getElementById('myBtn');
+var cartBtn = document.getElementById('cartBtn');
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName('close')[0];
+var span1 = document.getElementsByClassName('cartClose')[0];
 
 // When the user clicks on the button, open the modal
-btn.onclick = function () {
+cartBtn.onclick = function () {
     cart_modal.style.display = 'block';
 };
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
+span1.onclick = function () {
     cart_modal.style.display = 'none';
 };
 
@@ -43,6 +44,7 @@ var loginElement = document.getElementById('loginElement');
 var loginName = document.getElementById('loginName');
 var loginLogo = document.getElementById('userLogo');
 var userFlexBox = document.getElementById("userFlexBox");
+
 function acceptLogin() {
     var usernameHTML = document.getElementById('username');
     var username = usernameHTML.value;
@@ -50,13 +52,13 @@ function acceptLogin() {
     console.log(username);
     console.log(password);
 
-    if(username.length == 0 || password.length == 0){
+    if (username.length == 0 || password.length == 0) {
         document.getElementById("warningLogin").style.display = "flex";
     }
-    else{
+    else {
         document.getElementById("warningLogin").style.display = "none";
         loginDialog.close();
-        
+
 
         loginName.innerText = username;
 
@@ -70,22 +72,26 @@ function acceptLogin() {
 var userContext = document.getElementById("userContext");
 var userFlexBox = document.getElementById("userFlexBox");
 
-function enterUserBox(){
+function enterUserBox() {
     document.getElementById("loginName").style.color = "black"
     userContext.style.visibility = "visible";
     var rect = userFlexBox.getBoundingClientRect();
     console.log(rect["y"]);
     console.log(rect);
     userContext.style.left = rect["left"] + "px";
-    userContext.style.top = (rect["y"] + rect["height"])+ "px";
+    userContext.style.top = (rect["y"] + rect["height"]) + "px";
 }
 
-function leaveUserBox(){
+//var womansection = getElementById("womansection");
+//var mansection = getElementById("mansection");
+//var seasonsection = getElementById("seasonsection");
+
+function leaveUserBox() {
     document.getElementById("loginName").style.color = "white"
     userContext.style.visibility = "collapse";
 }
 
-function userLogout(){
+function userLogout() {
     document.getElementById('username').value = "";
     document.getElementById("password").value = "";
     loginElement.style.display = 'flex';
@@ -93,11 +99,6 @@ function userLogout(){
     loginLogo.style.display = 'none';
     userFlexBox.style.display = "none";
 }
-
-
-//var womansection = getElementById("womansection");
-//var mansection = getElementById("mansection");
-//var seasonsection = getElementById("seasonsection");
 
 function toggle(elementId) {
     console.log('here');
@@ -125,17 +126,9 @@ function hideProducts() {
     Array(14)
         .fill(1, 0, 13)
         .forEach((elementId, index) => {
-            document.getElementById(prefix + (index + 1)).style.visibility = "collapse";
-            console.log(prefix + (index + 1));
+            document.getElementById(prefix + (index + 1)).style.visibility =
+                'collapse';
         });
-}
-
-function displayItems(idlist) {
-    hideProducts();
-    idlist.forEach((index) => {
-        document.getElementById(prefix + index).style.visibility = 'visible';
-    });
-    closeNav();
 }
 
 var breadSlash1 = document.getElementById("breadSlash1");
@@ -148,6 +141,14 @@ function showBreadcrumbs(){
     breadcrumb1.style.visibility = "visible";
     breadSlash2.style.visibility = "visible";
     breadcrumb2.style.visibility = "visible";
+}
+
+function displayItems(idlist) {
+    hideProducts();
+    idlist.forEach((index) => {
+        document.getElementById(prefix + index).style.visibility = 'visible';
+    });
+    closeNav();
 }
 
 function showWomanCap() {
@@ -168,7 +169,7 @@ function showWomanPullover() {
     displayItems([8, 9]);
     showBreadcrumbs();
     breadcrumb1.innerText = "Woman";
-    breadcrumb2.innerText = "Pullover";
+    breadcrumb2.innerText = "Gloves";
 }
 
 function showWomanGloves() {
@@ -206,14 +207,14 @@ function showAll() {
     breadcrumb2.style.visibility = "collapse";
 }
 
-var product_modal = document.getElementById('product1');
-var btn = document.getElementById('openP1');
-var span = document.getElementsByClassName('close')[0];
+var product_modal = document.getElementById('openPicID');
+var product1Btn = document.getElementById('product1');
+var span2 = document.getElementsByClassName('pictureClose')[0];
 
-btn.onclick = function () {
+product1Btn.onclick = function () {
     product_modal.style.display = 'block';
 };
-span.onclick = function () {
+span2.onclick = function () {
     product_modal.style.display = 'none';
 };
 window.onclick = function (event) {

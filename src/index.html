@@ -13,12 +13,13 @@
   <div class="topnav">
     <a class="openbtn" onclick="openNav()"><img src="assets/menu.png" style="width: 50px; height: 50px" /></a>
     <a><img src="assets/logo.png" style="width: 50px; height: 50px" /> </a>
-    <a id="myBtn"><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
+    <a id="cartBtn"><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
     <a>Search ______</a>
     <a id="loginElement" onclick="openDialog()">Login</a>
 
-    <div class="userFlexBox" id="userFlexBox" style="display: none;" onmouseenter="enterUserBox()" onmouseleave="leaveUserBox()">
-      <img class="userItem" id="userLogo" style="max-width: 35px; max-height: 35px;" src="assets/userLOGO.png"/>
+    <div class="userFlexBox" id="userFlexBox" style="display: none;" onmouseenter="enterUserBox()"
+      onmouseleave="leaveUserBox()">
+      <img class="userItem" id="userLogo" style="max-width: 35px; max-height: 35px;" src="assets/userLOGO.png" />
       <p class="userItem" id="loginName"></p>
       <div id="userContext" class="user-context-menu" style="visibility: collapse">
         <a onclick="userLogout()">Logout</a>
@@ -26,17 +27,15 @@
     </div>
   </div>
 
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
+  <!-- Shopping Cart Modal -->
+  <div id="CartID" class="CartClass">
+    <div class="cartContent">
+      <span class="cartClose">&times;</span>
       <p><b>Shopping Cart</b></p>
       <p>...</p>
       <p>€ total</p>
       <p>Pay</p>
     </div>
-
   </div>
 
   <!-- Login Modal -->
@@ -106,7 +105,7 @@
           </div>
         </div>
       </div>
-      <div id="product1" class="modal">
+      <div id="openPicID" class="modal">
         <div class="modal-content">
           <div class="modal-pic">
             <img src="assets/clothes/cap1.png" class="product-image-modal" />
@@ -116,7 +115,7 @@
             <div class="product-price-modal">9.99 EUR</div>
             <button class="add-to-cart-btn-modal">Add to Cart</button>
           </div>
-          <span class="close">&times;</span>
+          <span class="pictureClose">&times;</span>
         </div>
       </div>
       <!-- Product Box 2 -->
