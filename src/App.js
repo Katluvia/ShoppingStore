@@ -1,19 +1,20 @@
 // Get the modal
-var cart_modal = document.getElementById('myModal');
+var cart_modal = document.getElementById('CartID');
+// cart_modal.style.display = 'none';
 
 // Get the button that opens the modal
-var btn = document.getElementById('myBtn');
+var cartBtn = document.getElementById('cartBtn');
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName('close')[0];
+var span1 = document.getElementsByClassName('cartClose')[0];
 
 // When the user clicks on the button, open the modal
-btn.onclick = function () {
+cartBtn.onclick = function () {
     cart_modal.style.display = 'block';
 };
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
+span1.onclick = function () {
     cart_modal.style.display = 'none';
 };
 
@@ -133,14 +134,14 @@ function showAll() {
     );
 }
 
-var product_modal = document.getElementById('product1');
-var btn = document.getElementById('openP1');
-var span = document.getElementsByClassName('close')[0];
+var product_modal = document.getElementById('openPicID');
+var product1Btn = document.getElementById('product1');
+var span2 = document.getElementsByClassName('pictureClose')[0];
 
-btn.onclick = function () {
+product1Btn.onclick = function () {
     product_modal.style.display = 'block';
 };
-span.onclick = function () {
+span2.onclick = function () {
     product_modal.style.display = 'none';
 };
 window.onclick = function (event) {
