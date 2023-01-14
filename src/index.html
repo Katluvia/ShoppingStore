@@ -16,14 +16,15 @@
     <a id="cartBtn"><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
     <a>Search ______</a>
     <a id="loginElement" onclick="openDialog()">Login</a>
-    <a>
-      <div class="userFlexBox" onclick="() => console.Log('Hello open user things')">
-        <div class="userItem" id="userLogo" style="display: none">
-          <img src="assets/userLOGO.png" style="width: 35px; height: 35px" />
-        </div>
-        <p class="userItem" id="loginName" style="display: none"></p>
+
+    <div class="userFlexBox" id="userFlexBox" style="display: none;" onmouseenter="enterUserBox()"
+      onmouseleave="leaveUserBox()">
+      <img class="userItem" id="userLogo" style="max-width: 35px; max-height: 35px;" src="assets/userLOGO.png" />
+      <p class="userItem" id="loginName"></p>
+      <div id="userContext" class="user-context-menu" style="visibility: collapse">
+        <a onclick="userLogout()">Logout</a>
       </div>
-    </a>
+    </div>
   </div>
 
   <!-- Shopping Cart Modal -->
@@ -40,6 +41,7 @@
   <!-- Login Modal -->
   <dialog id="loginDialog">
     <p>Bei ShoppingStore einloggen</p>
+    <p id="warningLogin" style="display: none; color: red;">Warning either username or password is wrong or missing</p>
     <div>
       <label for="username">Enter your username: </label>
       <input type="text" name="username" id="username" required />
@@ -81,6 +83,13 @@
 
   <!-- Main display -->
   <div>
+    <div class="breadcrumbs">
+      <a class="allbreadcrumb" onclick="showAll()">All</a>
+      <a id="breadSlash1" style="visibility: collapse;">></a>
+      <a id="breadcrumb1" style="visibility: collapse;"></a> 
+      <a id="breadSlash2" style="visibility: collapse;">></a> 
+      <a id="breadcrumb2" style="visibility: collapse;"></a>
+    </div>
     <div class="clothes" id="products">
       <!-- Product Box 1 -->
       <div id="product1" class="product-box">
