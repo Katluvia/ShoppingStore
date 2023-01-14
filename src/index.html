@@ -13,7 +13,7 @@
   <div class="topnav">
     <a class="openbtn" onclick="openNav()"><img src="assets/menu.png" style="width: 50px; height: 50px" /></a>
     <a><img src="assets/logo.png" style="width: 50px; height: 50px" /> </a>
-    <a id="myBtn"><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
+    <a id="cartBtn"><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
     <a>Search ______</a>
     <a id="loginElement" onclick="openDialog()">Login</a>
     <a>
@@ -26,17 +26,15 @@
     </a>
   </div>
 
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
+  <!-- Shopping Cart Modal -->
+  <div id="CartID" class="CartClass">
+    <div class="cartContent">
+      <span class="cartClose">&times;</span>
       <p><b>Shopping Cart</b></p>
       <p>...</p>
       <p>€ total</p>
       <p>Pay</p>
     </div>
-
   </div>
 
   <!-- Login Modal -->
@@ -84,35 +82,202 @@
   <!-- Main display -->
   <div>
     <div class="clothes" id="products">
-      <div id="openP1">
+      <!-- Product Box 1 -->
+      <div id="product1" class="product-box">
         <img src="assets/clothes/cap1.png" class="products-image" />
+        <!-- Product Info -->
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Cap 1</div>
+            <div class="product-price">9.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
       </div>
-      <div id="product1" class="modal">
+      <div id="openPicID" class="modal">
         <div class="modal-content">
           <div class="modal-pic">
             <img src="assets/clothes/cap1.png" class="product-image-modal" />
           </div>
-          <div class="product-info">
-            <div class="product-name">Mutze</div>
-            <div class="product-price">9.99 EUR</div>
-            <button class="add-to-cart-btn">Add to Cart</button>
+          <div class="product-info-modal">
+            <div class="product-name-modal">Mutze</div>
+            <div class="product-price-modal">9.99 EUR</div>
+            <button class="add-to-cart-btn-modal">Add to Cart</button>
           </div>
-          <span class="close">&times;</span>
+          <span class="pictureClose">&times;</span>
         </div>
       </div>
-      <img src="assets/clothes/cap1.png" id="product1" class="products-image" />
-      <img src="assets/clothes/cap2.png" id="product2" class="products-image" />
-      <img src="assets/clothes/cap3.png" id="product3" class="products-image" />
-      <img src="assets/clothes/coat1.png" id="product4" class="products-image" />
-      <img src="assets/clothes/coat2.png" id="product5" class="products-image" />
-      <img src="assets/clothes/gloves1.png" id="product6" class="products-image" />
-      <img src="assets/clothes/gloves2.png" id="product7" class="products-image" />
-      <img src="assets/clothes/pullover1.png" id="product8" class="products-image" />
-      <img src="assets/clothes/pullover2.png" id="product9" class="products-image" />
-      <img src="assets/clothes/shoes1.png" id="product10" class="products-image" />
-      <img src="assets/clothes/trousers1.png" id="product11" class="products-image" />
-      <img src="assets/clothes/trousers2.png" id="product12" class="products-image" />
-      <img src="assets/clothes/trousers3.png" id="product13" class="products-image" />
+      <!-- Product Box 2 -->
+      <div id="product2" class="product-box">
+        <img src="assets/clothes/cap2.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Cap 2</div>
+            <div class="product-price">10.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 3 -->
+      <div id="product3" class="product-box">
+        <img src="assets/clothes/cap3.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Cap 3</div>
+            <div class="product-price">7.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 4 -->
+      <div id="product4" class="product-box">
+        <img src="assets/clothes/coat1.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Coat 1</div>
+            <div class="product-price">34.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 5 -->
+      <div id="product5" class="product-box">
+        <img src="assets/clothes/coat2.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Coat 2</div>
+            <div class="product-price">39.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 6 -->
+      <div id="product6" class="product-box">
+        <img src="assets/clothes/gloves1.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Gloves 1</div>
+            <div class="product-price">9.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 7 -->
+      <div id="product7" class="product-box">
+        <img src="assets/clothes/gloves2.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Gloves 2</div>
+            <div class="product-price">6.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 8 -->
+      <div id="product8" class="product-box">
+        <img src="assets/clothes/pullover1.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Pullover 1</div>
+            <div class="product-price">16.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 9 -->
+      <div id="product9" class="product-box">
+        <img src="assets/clothes/pullover2.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Pullover 2</div>
+            <div class="product-price">21.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 10 -->
+      <div id="product10" class="product-box">
+        <img src="assets/clothes/shoes1.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Shoes 1</div>
+            <div class="product-price">25.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 11 -->
+      <div id="product11" class="product-box">
+        <img src="assets/clothes/trousers1.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Trousers 1</div>
+            <div class="product-price">15.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 12 -->
+      <div id="product12" class="product-box">
+        <img src="assets/clothes/trousers2.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Trousers 2</div>
+            <div class="product-price">18.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 13 -->
+      <div id="product13" class="product-box">
+        <img src="assets/clothes/trousers3.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Trousers 3</div>
+            <div class="product-price">30.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- <img src="assets/clothes/cap1.png" id="product1" class="products-image" /> -->
+      <!-- <img src="assets/clothes/cap2.png" id="product2" class="products-image" /> -->
+      <!-- <img src="assets/clothes/cap3.png" id="product3" class="products-image" /> -->
+      <!-- <img src="assets/clothes/coat1.png" id="product4" class="products-image" /> -->
+      <!-- <img src="assets/clothes/coat2.png" id="product5" class="products-image" /> -->
+      <!-- <img src="assets/clothes/gloves1.png" id="product6" class="products-image" /> -->
+      <!-- <img src="assets/clothes/gloves2.png" id="product7" class="products-image" /> -->
+      <!-- <img src="assets/clothes/pullover1.png" id="product8" class="products-image" /> -->
+      <!-- <img src="assets/clothes/pullover2.png" id="product9" class="products-image" /> -->
+      <!-- <img src="assets/clothes/shoes1.png" id="product10" class="products-image" /> -->
+      <!-- <img src="assets/clothes/trousers1.png" id="product11" class="products-image" /> -->
+      <!-- <img src="assets/clothes/trousers2.png" id="product12" class="products-image" /> -->
+      <!-- <img src="assets/clothes/trousers3.png" id="product13" class="products-image" /> -->
 
     </div>
 

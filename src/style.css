@@ -95,50 +95,115 @@ body {
   padding: 16px;
 }
 
-/* MODAL TEST */
-.modal {
-  display: none; 
+/* Info on Products */
+.product-box {
+  width: 334px;
+  background: white;
+}
+
+.product-info {
+  border-style: solid;
+}
+
+.name-price-container {
+  display: flex;
+}
+
+.product-name {
+  width: 50%;
+  padding: 0.5em;
+  font-size: 25px;
+}
+
+.product-price {
+  text-align: right;
+  width: 50%;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 0.5em;
+}
+
+.btn-wrap {
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+.add-to-cart-btn {
+  font-size: 20px;
+  padding: 0.5em;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+/* MODAL Cart background */
+.CartClass {
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4); 
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Modal Content/Box */
-.modal-content {
-  display: flex;
+/* Modal Cart Content */  
+.cartContent {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
 }
+
+/* The Close Cart Button */
+.cartClose {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.cartClose:hover,
+.cartClose:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Modal pic */
 .modal-pic {
   width: 50%;
 }
+
 .product-image-modal {
   width: 100%;
 }
-.product-info {
+
+.product-info-modal {
   width: 50%;
   text-align: center;
 }
-.product-name {
+
+.product-name-modal {
   font-size: 50px;
   margin-top: 4em;
 }
-.product-price {
+
+.product-price-modal {
   font-size: 20px;
   margin-top: 1em;
 }
-.add-to-cart-btn {
+
+.add-to-cart-btn-modal {
   margin-top: 1em;
 }
+
 /* The Close Button */
 .close {
   color: #aaa;
@@ -153,6 +218,7 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
 /* END TEST */
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -186,37 +252,44 @@ body {
 }
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
- 
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+
 }
 
 /* Modal Content/Box */
 .modal-content {
+  display:flex;
   background-color: rgb(67, 171, 215);
-  margin: 20% auto; /* 15% from the top and centered */
+  margin: 20% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%;
 }
 
 /* The Close Button */
-.close {
+.pictureClose {
   color: rgb(0, 0, 0);
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.pictureClose:hover,
+.pictureClose:focus {
   color: black;
-  text-decoration: none;
-  cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
