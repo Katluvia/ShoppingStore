@@ -84,23 +84,34 @@
   <!-- Main display -->
   <div>
     <div class="clothes" id="products">
-      <div id="openP1">
+      <!-- Product Box -->
+      <div id="openP1" class="product-box">
         <img src="assets/clothes/cap1.png" class="products-image" />
+        <!-- Product Info -->
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Mutze</div>
+            <div class="product-price">9.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
       </div>
       <div id="product1" class="modal">
         <div class="modal-content">
           <div class="modal-pic">
             <img src="assets/clothes/cap1.png" class="product-image-modal" />
           </div>
-          <div class="product-info">
-            <div class="product-name">Mutze</div>
-            <div class="product-price">9.99 EUR</div>
-            <button class="add-to-cart-btn">Add to Cart</button>
+          <div class="product-info-modal">
+            <div class="product-name-modal">Mutze</div>
+            <div class="product-price-modal">9.99 EUR</div>
+            <button class="add-to-cart-btn-modal">Add to Cart</button>
           </div>
           <span class="close">&times;</span>
         </div>
       </div>
-      <img src="assets/clothes/cap1.png" id="product1" class="products-image" />
+      <!-- <img src="assets/clothes/cap1.png" id="product1" class="products-image" /> -->
       <img src="assets/clothes/cap2.png" id="product2" class="products-image" />
       <img src="assets/clothes/cap3.png" id="product3" class="products-image" />
       <img src="assets/clothes/coat1.png" id="product4" class="products-image" />
