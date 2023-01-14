@@ -95,8 +95,8 @@ body {
   padding: 16px;
 }
 
-/* MODAL TEST */
-.modal {
+/* MODAL Cart background */
+.CartClass {
   display: none; 
   position: fixed;
   z-index: 1;
@@ -109,15 +109,31 @@ body {
   background-color: rgba(0,0,0,0.4); 
 }
 
-/* Modal Content/Box */
-.modal-content {
-  display: flex;
+/* Modal Cart Content */  
+.cartContent {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 15% auto; 
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 80%; 
+} 
+
+/* The Close Cart Button */
+.cartClose {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
+
+.cartClose:hover,
+.cartClose:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Modal pic */
 .modal-pic {
   width: 50%;
 }
@@ -139,20 +155,24 @@ body {
 .add-to-cart-btn {
   margin-top: 1em;
 }
+
 /* The Close Button */
-.close {
-  color: #aaa;
+.pictureClose {
+  color: rgb(0, 0, 0);
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.pictureClose:hover,
+.pictureClose:focus {
   color: black;
-  text-decoration: none;
-  cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
+
+
+
 /* END TEST */
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -164,10 +184,6 @@ body {
   .sidebar a {
     font-size: 18px;
   }
-}
-
-.myButton {
-  color: red;
 }
 
 .clothes {
@@ -185,7 +201,7 @@ body {
   border-style: solid;
 }
 
-.modal {
+.openPicClass {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -198,7 +214,7 @@ body {
 }
 
 /* Modal Content/Box */
-.modal-content {
+.openPictureContent {
   background-color: rgb(67, 171, 215);
   margin: 20% auto; /* 15% from the top and centered */
   padding: 20px;
@@ -206,17 +222,3 @@ body {
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button */
-.close {
-  color: rgb(0, 0, 0);
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
