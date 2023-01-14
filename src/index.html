@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <title>G11: Shopping Store</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <!-- Navbar -->
   <div class="topnav">
-    <a class="openbtn" onclick="openNav()" href="#menu"><img src="assets/menu.png"
-        style="width: 50px; height: 50px" /></a>
+    <a class="openbtn" onclick="openNav()"><img src="assets/menu.png" style="width: 50px; height: 50px" /></a>
     <a><img src="assets/logo.png" style="width: 50px; height: 50px" /> </a>
-    <a><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
-    <a href="#search">Search______</a>
-    <a id="loginElement" onclick="openDialog()" href="#login">log in</a>
+    <a id="myBtn"><img src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
+    <a>Search ______</a>
+    <a id="loginElement" onclick="openDialog()">Login</a>
     <a>
       <div class="userFlexBox" onclick="() => console.Log('Hello open user things')">
         <div class="userItem" id="userLogo" style="display: none">
@@ -24,151 +26,268 @@
     </a>
   </div>
 
+  <div id="myModal" class="modal">
 
-    <!-- sidebar -->
-    <div id="mySidebar" class="sidebar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a href="#" onclick="showAll()">All</a>
-      <a href="#" onclick="toggleWomen()">Women</a>
-      <div class="cloth-category" id="womansection" style="display: none;">
-        <a id="cap" onclick="showWomanCap()">Cap</a>
-        <a id="coat" onclick="showWomanCoat()">Coat</a>
-        <a id="pullover" onclick="showWomanPullover()">Pullover</a>
-        <a id="gloves" onclick="showWomanGloves()">Gloves</a>
-        <a id="trousers" onclick="showWomanTrousers()">Trousers</a>
-        <a id="shoes" onclick="showWomanShoes()">Shoes</a>
-      </div>
-
-      <a href="#" onclick="toggleMan()">Men</a>
-      <div class="cloth-category" id="mansection" style="display: none;">
-        <a id="cap" onclick="showWomanCap()">Cap</a>
-        <a id="coat" onclick="showWomanCoat()">Coat</a>
-        <a id="pullover" onclick="showWomanPullover()">Pullover</a>
-        <a id="gloves" onclick="showWomanGloves()">Gloves</a>
-        <a id="trousers" onclick="showWomanTrousers()">Trousers</a>
-        <a id="shoes" onclick="showWomanShoes()">Shoes</a>
-      </div>
-
-      <a href="#" onclick="toggleSeason()">Season</a>
-        <div class="cloth-category" id="seasonsection" style="display: none;">
-          <a id="winter" onclick="showAll()">Winter</a>
-        </div>
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p><b>Shopping Cart</b></p>
+      <p>...</p>
+      <p>€ total</p>
+      <p>Pay</p>
     </div>
 
-
-  <div>
-    <div class="clothes" id="products">
-      <img src="../clothes/cap1.png" id="product1" class="products-image" />
-      <img src="../clothes/cap2.png" id="product2" class="products-image"/>
-      <img src="../clothes/cap3.png" id="product3" class="products-image"/>
-      <img src="../clothes/coat1.png" id="product4" class="products-image" />
-      <img src="../clothes/coat2.png" id="product5" class="products-image" />
-      <img src="../clothes/gloves1.png" id="product6" class="products-image" />
-      <img src="../clothes/gloves2.png" id="product7" class="products-image" />
-      <img src="../clothes/pullover1.png" id="product8" class="products-image" />
-      <img src="../clothes/pullover2.png" id="product9" class="products-image" />
-      <img src="../clothes/shoes1.png" id="product10" class="products-image" />
-      <img src="../clothes/trousers1.png" id="product11" class="products-image" />
-      <img src="../clothes/trousers2.png" id="product12"class="products-image" />
-      <img src="../clothes/trousers3.png" id="product13" class="products-image" />
-    </div>
-
-    <dialog id="loginDialog">
-      <p>Bei ShoppingStore einloggen</p>
-      <div>
-        <label for="username">Enter your username: </label>
-        <input type="text" name="username" id="username" required />
-        <label for="password">Enter your password: </label>
-        <input type="password" name="password" id="password" required />
-        <input type="submit" value="login" onclick="acceptLogin()" />
-      </div>
-    </dialog>
   </div>
 
-  <script>
-    function openNav() {
-      document.getElementById("mySidebar").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
-    }
+  <!-- Login Modal -->
+  <dialog id="loginDialog">
+    <p>Bei ShoppingStore einloggen</p>
+    <div>
+      <label for="username">Enter your username: </label>
+      <input type="text" name="username" id="username" required />
+      <label for="password">Enter your password: </label>
+      <input type="password" name="password" id="password" required />
+      <input type="submit" value="login" onclick="acceptLogin()" />
+    </div>
+  </dialog>
 
-    function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
-      document.getElementById("main").style.marginLeft = "0";
-    }
-    const loginDialog = document.getElementById("loginDialog");
+  <!-- Sidebar -->
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="#" onclick="showAll()">All</a>
+    <a href="#" onclick="toggleWomen()">Women</a>
+    <div class="cloth-category" id="womansection" style="display: none;">
+      <a id="cap" onclick="showWomanCap()">Cap</a>
+      <a id="coat" onclick="showWomanCoat()">Coat</a>
+      <a id="pullover" onclick="showWomanPullover()">Pullover</a>
+      <a id="gloves" onclick="showWomanGloves()">Gloves</a>
+      <a id="trousers" onclick="showWomanTrousers()">Trousers</a>
+      <a id="shoes" onclick="showWomanShoes()">Shoes</a>
+    </div>
 
-    function openDialog() {
-      loginDialog.showModal();
-    }
+    <a href="#" onclick="toggleMan()">Men</a>
+    <div class="cloth-category" id="mansection" style="display: none;">
+      <a id="cap" onclick="showWomanCap()">Cap</a>
+      <a id="coat" onclick="showWomanCoat()">Coat</a>
+      <a id="pullover" onclick="showWomanPullover()">Pullover</a>
+      <a id="gloves" onclick="showWomanGloves()">Gloves</a>
+      <a id="trousers" onclick="showWomanTrousers()">Trousers</a>
+      <a id="shoes" onclick="showWomanShoes()">Shoes</a>
+    </div>
 
-    function acceptLogin() {
-      var usernameHTML = document.getElementById("username");
-      var username = usernameHTML.value;
-      console.log(username);
-      loginDialog.close();
+    <a href="#" onclick="toggleSeason()">Season</a>
+    <div class="cloth-category" id="seasonsection" style="display: none;">
+      <a id="winter" onclick="showAll()">Winter</a>
+    </div>
+  </div>
 
-      var loginElement = document.getElementById("loginElement");
-      var loginName = document.getElementById("loginName");
-      var loginLogo = document.getElementById("userLogo");
+  <!-- Main display -->
+  <div>
+    <div class="clothes" id="products">
+      <!-- Product Box 1 -->
+      <div id="openP1" class="product-box">
+        <img src="assets/clothes/cap1.png" class="products-image" />
+        <!-- Product Info -->
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Cap 1</div>
+            <div class="product-price">9.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div id="product1" class="modal">
+        <div class="modal-content">
+          <div class="modal-pic">
+            <img src="assets/clothes/cap1.png" class="product-image-modal" />
+          </div>
+          <div class="product-info-modal">
+            <div class="product-name-modal">Mutze</div>
+            <div class="product-price-modal">9.99 EUR</div>
+            <button class="add-to-cart-btn-modal">Add to Cart</button>
+          </div>
+          <span class="close">&times;</span>
+        </div>
+      </div>
+      <!-- Product Box 2 -->
+      <div id="product2" class="product-box">
+        <img src="assets/clothes/cap2.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Cap 2</div>
+            <div class="product-price">10.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 3 -->
+      <div id="product3" class="product-box">
+        <img src="assets/clothes/cap3.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Cap 3</div>
+            <div class="product-price">7.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 4 -->
+      <div id="product4" class="product-box">
+        <img src="assets/clothes/coat1.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Coat 1</div>
+            <div class="product-price">34.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 5 -->
+      <div id="product5" class="product-box">
+        <img src="assets/clothes/coat2.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Coat 2</div>
+            <div class="product-price">39.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 6 -->
+      <div id="product6" class="product-box">
+        <img src="assets/clothes/gloves1.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Gloves 1</div>
+            <div class="product-price">9.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 7 -->
+      <div id="product7" class="product-box">
+        <img src="assets/clothes/gloves2.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Gloves 2</div>
+            <div class="product-price">6.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 8 -->
+      <div id="product8" class="product-box">
+        <img src="assets/clothes/pullover1.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Pullover 1</div>
+            <div class="product-price">16.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 9 -->
+      <div id="product9" class="product-box">
+        <img src="assets/clothes/pullover2.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Pullover 2</div>
+            <div class="product-price">21.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 10 -->
+      <div id="product10" class="product-box">
+        <img src="assets/clothes/shoes1.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Shoes 1</div>
+            <div class="product-price">25.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 11 -->
+      <div id="product11" class="product-box">
+        <img src="assets/clothes/trousers1.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Trousers 1</div>
+            <div class="product-price">15.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 12 -->
+      <div id="product12" class="product-box">
+        <img src="assets/clothes/trousers2.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Trousers 2</div>
+            <div class="product-price">18.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product Box 13 -->
+      <div id="product13" class="product-box">
+        <img src="assets/clothes/trousers3.png" class="products-image" />
+        <div class="product-info">
+          <div class="name-price-container">
+            <div class="product-name">Trousers 3</div>
+            <div class="product-price">30.99 EUR</div>
+          </div>
+          <div class="btn-wrap">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- <img src="assets/clothes/cap1.png" id="product1" class="products-image" /> -->
+      <!-- <img src="assets/clothes/cap2.png" id="product2" class="products-image" /> -->
+      <!-- <img src="assets/clothes/cap3.png" id="product3" class="products-image" /> -->
+      <!-- <img src="assets/clothes/coat1.png" id="product4" class="products-image" /> -->
+      <!-- <img src="assets/clothes/coat2.png" id="product5" class="products-image" /> -->
+      <!-- <img src="assets/clothes/gloves1.png" id="product6" class="products-image" /> -->
+      <!-- <img src="assets/clothes/gloves2.png" id="product7" class="products-image" /> -->
+      <!-- <img src="assets/clothes/pullover1.png" id="product8" class="products-image" /> -->
+      <!-- <img src="assets/clothes/pullover2.png" id="product9" class="products-image" /> -->
+      <!-- <img src="assets/clothes/shoes1.png" id="product10" class="products-image" /> -->
+      <!-- <img src="assets/clothes/trousers1.png" id="product11" class="products-image" /> -->
+      <!-- <img src="assets/clothes/trousers2.png" id="product12" class="products-image" /> -->
+      <!-- <img src="assets/clothes/trousers3.png" id="product13" class="products-image" /> -->
 
-      loginName.innerText = username;
+    </div>
 
-      loginElement.style.display = "none";
-      loginName.style.display = "flex";
-      loginLogo.style.display = "flex";
-    }
 
-      
-      //var womansection = getElementById("womansection");
-      //var mansection = getElementById("mansection");
-      //var seasonsection = getElementById("seasonsection");
 
-      function toggle(elementId){
-        console.log("here");
-        if(document.getElementById(elementId).style.display === "block"){
-          document.getElementById(elementId).style.display = "none"
-        } else {
-          document.getElementById(elementId).style.display = "block"
-        }
-      }
+    <!-- JS Scripts -->
+    <script src="App.js"></script>
 
-      function toggleWomen(){
-        toggle("womansection");
-      }
+</body>
 
-      function toggleMan(){ toggle("mansection"); }
-      function toggleSeason(){ toggle("seasonsection"); }
-
-      var prefix = "product";
-
-      function hideProducts(){
-        Array(14).fill(1, 0, 13).forEach((elementId, index) => {
-          document.getElementById(prefix + (index + 1)).style.visibility = 'collapse';
-        });
-      }
-
-      function displayItems(idlist){
-        hideProducts()
-        idlist.forEach((index) => {
-          document.getElementById(prefix + index).style.visibility = 'visible';
-        });
-        closeNav();
-      }
-
-      function showWomanCap(){ displayItems([1,2,3]); }
-
-      function showWomanCoat(){ displayItems([4,5]); }
-
-      function showWomanPullover(){ displayItems([8,9]); }
-
-      function showWomanGloves(){ displayItems([6,7]); }
-
-      function showWomanShoes(){ displayItems([10]); }
- 
-      function showWomanTrousers(){ displayItems([11,12,13]); }
-
-      function showAll(){ displayItems(Array(14).fill(1, 0, 13).map((el, index) => {return index+1;})); }
-
-    </script>
-  </body>
 </html>
