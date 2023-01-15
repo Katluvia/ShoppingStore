@@ -18,6 +18,16 @@ span1.onclick = function () {
     cart_modal.style.display = 'none';
 };
 
+function onCartBtnEnter() {
+    var cartImage = document.getElementById("cartItemImage");
+    cartImage.src = "assets/shopping-cart-hover.png";
+}
+
+function onCartBtnLeave() {
+    var cartImage = document.getElementById("cartItemImage");
+    cartImage.src = "assets/shopping-cart.png";
+}
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == cart_modal) {
