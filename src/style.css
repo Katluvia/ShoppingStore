@@ -339,3 +339,28 @@ body {
   color: #0060df;
   cursor: pointer; 
 }
+
+.item-in-cart-base{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  border-bottom: #111 solid 2px;
+  border-top: #111 solid 2px;
+}
+
+.pair-item-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.pair-item-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.product-image-cart {
+  max-width: 100px;
+  max-height: 100px;
+
+}

@@ -18,6 +18,8 @@ span1.onclick = function () {
     cart_modal.style.display = 'none';
 };
 
+
+//Hover over the shopping cart
 function onCartBtnEnter() {
     var cartImage = document.getElementById("cartItemImage");
     cartImage.src = "assets/shopping-cart-hover.png";
@@ -27,6 +29,7 @@ function onCartBtnLeave() {
     var cartImage = document.getElementById("cartItemImage");
     cartImage.src = "assets/shopping-cart.png";
 }
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
@@ -216,7 +219,7 @@ function showAll() {
     breadSlash2.style.visibility = "collapse";
     breadcrumb2.style.visibility = "collapse";
 }
-
+/*
 var product_modal = document.getElementById('openPicID');
 var product1Btn = document.getElementById('product1');
 var span2 = document.getElementsByClassName('pictureClose')[0];
@@ -231,4 +234,106 @@ window.onclick = function (event) {
     if (event.target == product_modal) {
         product_modal.style.display = 'none';
     }
+};*/
+
+
+//shopping cart implementation
+var currentItemsInCart = 0;
+function increaseItemsInCart(){
+   document.getElementById("itemsInCart").innerHTML = ++currentItemsInCart;
+}
+
+function decreaseItemsInCart(){
+    document.getElementById("itemsInCart").innerHTML = --currentItemsInCart;
+}
+
+function createItemForCart(productID, name){
+    increaseItemsInCart();
+    var divBase = document.createElement("div");
+    divBase.id = "product" + productID + "_" + currentItemsInCart;
+    divBase.className = "item-in-cart-base";
+
+    var pPrice = document.createElement("div");
+    pPrice.innerText = "Value €"; // TODO make mapping via switch between price and product name
+
+    
+    var pProductName = document.createElement("p");
+    pProductName.innerText = name;
+
+    var pAmount = document.createElement("p");
+    pAmount.innerText = "Amount: "
+    
+    var inputAmount = document.createElement("input");
+    inputAmount.type = "number";
+    inputAmount.min = 1;
+    inputAmount.max = 3;
+    inputAmount.value = 1;
+    
+    var divAmount = document.createElement("div");
+    divAmount.appendChild(pAmount);
+    divAmount.appendChild(inputAmount);
+    divAmount.className = "pair-item-row";
+    
+    var divNameAmount = document.createElement("div");
+    divNameAmount.appendChild(pProductName);
+    divNameAmount.appendChild(divAmount);
+    divNameAmount.className = "pair-item-content";
+    
+    var divEmpty = document.createElement("div");
+    var btnDelet = document.createElement("button");
+    btnDelet.innerText = "Delete";
+    btnDelet.addEventListener("click", function () { deletItem(divBase.id); }, false);
+    
+    var divEmptyDelete = document.createElement("div");
+    divEmptyDelete.appendChild(divEmpty);
+    divEmptyDelete.appendChild(btnDelet);
+    divEmptyDelete.className = "pair-item-content";
+    divEmptyDelete.style.justifyContent = "flex-end";
+
+    var divNAED = document.createElement("div");
+    divNAED.appendChild(divNameAmount);
+    divNAED.appendChild(divEmptyDelete);
+    divNAED.className = "pair-item-row";
+
+    var imgProduct = document.createElement("img");
+    imgProduct.className = "product-image-cart";
+    imgProduct.src = "assets/clothes/" + name + ".png";
+    var content = document.createElement("div");
+    content.appendChild(imgProduct);
+    content.appendChild(divNAED);
+    content.className = "pair-item-row";
+
+    divBase.appendChild(content);
+    divBase.appendChild(pPrice);
+
+    return divBase;
+}
+
+
+
+function deletItem(id) {
+    console.log(id);
+    var element = document.getElementById(id);
+    console.log(element);
+    var parent = document.getElementById("itemCartList")
+    parent.removeChild(element); 
+    decreaseItemsInCart();
 };
+
+//Functions to add an item to the shopping cart
+function addCap1(){document.getElementById("itemCartList").appendChild(createItemForCart("1", "cap1"));}
+function addCap2(){document.getElementById("itemCartList").appendChild(createItemForCart("2", "cap2"));}
+function addCap3(){ document.getElementById("itemCartList").appendChild(createItemForCart("3", "cap3"));}
+function addCoat1(){ document.getElementById("itemCartList").appendChild(createItemForCart("1", "coat1"));}
+function addCoat2(){ document.getElementById("itemCartList").appendChild(createItemForCart("2", "coat2"));}
+function addGloves1(){ document.getElementById("itemCartList").appendChild(createItemForCart("1", "gloves1"));}
+function addGloves2(){ document.getElementById("itemCartList").appendChild(createItemForCart("2", "gloves2"));}
+function addPullover1(){ document.getElementById("itemCartList").appendChild(createItemForCart("1", "pullover1"));}
+function addPullover2(){ document.getElementById("itemCartList").appendChild(createItemForCart("2", "pullover2"));}
+function addShoes1(){ document.getElementById("itemCartList").appendChild(createItemForCart("1", "shoes1"));}
+function addTrousers1(){ document.getElementById("itemCartList").appendChild(createItemForCart("1", "trousers1"));}
+function addTrousers2(){ document.getElementById("itemCartList").appendChild(createItemForCart("2", "trousers2"));}
+function addTrousers3(){ document.getElementById("itemCartList").appendChild(createItemForCart("3", "trousers3"));}
+
+
+
