@@ -1,0 +1,36 @@
+<head>
+  <title>G11: Checkout - Shopping Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+
+  <link rel="stylesheet" href="style_checkout.css">
+  <section class="component">
+    </div>
+    <div class="credit-card">
+      <h2>Enter Payment Details</h2>
+      <form>
+        <input type="text" placeholder="NAME" />
+        <input type="text" placeholder="ADRESS" />
+        <input type="text" placeholder="PLZ" />
+        <input type="text" placeholder="Email" />
+        <input type="text" placeholder="IBAN" />
+        <button id="Proceed to checkout" type="submit" class="valid-button" onclick="myFunction()">PROCEED TO
+          CHECKOUT</button>
+      </form>
+    </div>
+  </section>
+
+
+
+</head>
+
+<body>
+  <!--Bestellung abgeschlossen-->
+  <script>
+    function myFunction() {
+      window.location.href = 'index.html';
+      confirm("Thank you for your Order! \n We send you an order confirmation by email.");
+    }
+  </script>
+
+</body>
