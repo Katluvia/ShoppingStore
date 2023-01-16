@@ -31,6 +31,19 @@ body {
     color: white;
 }
 
+.navbarLeft {
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
+}
+
+.navbarRight {
+    display: flex;
+    align-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+}
+
 .sidebar {
     height: 100%;
     width: 0;
@@ -206,18 +219,18 @@ body {
 }
 
 /* The Close Button */
-.pictureClose {
-    color: rgb(0, 0, 0);
+.close {
+    color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.pictureClose:hover,
-.pictureClose:focus {
+.close:hover,
+.close:focus {
     color: black;
-      text-decoration: none;
-      cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* END TEST */
@@ -231,6 +244,10 @@ body {
     .sidebar a {
         font-size: 18px;
     }
+}
+
+.myButton {
+    color: red;
 }
 
 .clothes {
@@ -370,4 +387,12 @@ body {
 
 .item-price-sum {
     margin: 4px 16px 4px;
+}
+
+.proceed-checkout {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
 }

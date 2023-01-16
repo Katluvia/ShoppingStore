@@ -62,6 +62,13 @@ function openDialog() {
     loginDialog.showModal();
 }
 
+function closeDialog(event) {
+    if (!event.target.contains(loginDialog)) return;
+    loginDialog.close();
+}
+
+document.addEventListener('click', closeDialog);
+
 var loginElement = document.getElementById('loginElement');
 var loginName = document.getElementById('loginName');
 var loginLogo = document.getElementById('userLogo');

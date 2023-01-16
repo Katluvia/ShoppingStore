@@ -11,16 +11,25 @@
 <body>
   <!-- Navbar -->
   <div class="topnav">
-    <a class="openbtn" onclick="openNav()"><img src="assets/menu.png" style="width: 50px; height: 50px" /></a>
-    <a id="logoBtn" onclick="showAll()" onmouseenter="onLogoBtnEnter()" onmouseleave="onLogoBtnLeave()"><img
-        id="logoImage" src="assets/logo.png" style="width: 205px; height: 50px" /> </a>
-    <a id="cartBtn" onmouseenter="onCartBtnEnter()" onmouseleave="onCartBtnLeave()"><img id="cartItemImage"
-        src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
-    <p id="itemsInCart"
-      style="margin-left: -20px; padding-top: 18px; padding-right: 20px; color: red; font-size: 20px; font-weight: bold;">
-    </p>
-    <a>Search ______</a>
-    <a id="loginElement" onclick="openDialog()">Login</a>
+    <div class="navbarLeft">
+
+      <a class="openbtn" onclick="openNav()"><img src="assets/menu.png" style="width: 50px; height: 50px" /></a>
+    </div>
+    <div>
+      <a id="logoBtn" onclick="showAll()" onmouseenter="onLogoBtnEnter()" onmouseleave="onLogoBtnLeave()">
+        <img id="logoImage" src="assets/logo.png" style="width: 205px; height: 50px" />
+      </a>
+    </div>
+    <div class="navbarRight">
+      <a id="cartBtn" onmouseenter="onCartBtnEnter()" onmouseleave="onCartBtnLeave()"><img id="cartItemImage"
+          src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
+      <p id="itemsInCart"
+        style="margin-left: -20px; padding-top: 18px; padding-right: 20px; color: red; font-size: 20px; font-weight: bold;">
+      </p>
+      <a>Search</a>
+      <input type="text" placeholder="Jeans, Shoes..." />
+      <a id="loginElement" onclick="openDialog()">Login</a>
+    </div>
 
     <div class="userFlexBox" id="userFlexBox" style="display: none;" onmouseenter="enterUserBox()"
       onmouseleave="leaveUserBox()">
@@ -53,14 +62,14 @@
 
   <!-- Login Modal -->
   <dialog id="loginDialog">
-    <p>Bei ShoppingStore einloggen</p>
+    <p style="text-align: center; margin-bottom: 5%;">Bei ShoppingStore einloggen</p>
     <p id="warningLogin" style="display: none; color: red;">Warning either username or password is wrong or missing</p>
     <div>
       <label for="username">Enter your username: </label>
       <input type="text" name="username" id="username" required />
       <label for="password">Enter your password: </label>
       <input type="password" name="password" id="password" required />
-      <input type="submit" value="login" onclick="acceptLogin()" />
+      <input type="submit" value="Login" onclick="acceptLogin()" />
     </div>
   </dialog>
 
