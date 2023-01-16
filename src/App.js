@@ -258,14 +258,48 @@ function decreaseItemsInCart(){
     document.getElementById("itemsInCart").innerHTML = --currentItemsInCart;
 }
 
-function createItemForCart(productID, name){
+const pPrice = new Intl.NumberFormat('de-DE',
+                        { style: 'currency', currency: 'EUR',
+                          minimumFractionDigits: 2 });
+
+var currentItemCartValue = 0.0;
+var bucketListItems =  [];
+
+function newItemCartValue(id, value){
+    for(let i=0; i < bucketListItems.length; ++i){
+        if(id === bucketListItems[i].id){
+            bucketListItems[i].value = value;
+            return;
+        }
+    }
+    bucketListItems.push({
+        "id": id, 
+        "value": value
+    });
+}
+
+var pSum = document.getElementById("pSum");
+
+function valueItemSum(){
+    var sum = 0.0;
+    for(let i=0; i < bucketListItems.length; ++i){
+        sum += bucketListItems[i].value;
+    }
+    pSum.innerText = pPrice.format(sum);
+}
+
+
+function createItemForCart(productID, name, price){
     increaseItemsInCart();
     var divBase = document.createElement("div");
     divBase.id = "product" + productID + "_" + currentItemsInCart;
     divBase.className = "item-in-cart-base";
+    newItemCartValue(divBase.id, price);
+    valueItemSum();
 
     var pPrice = document.createElement("div");
-    pPrice.innerText = "Value €"; // TODO make mapping via switch between price and product name
+    pPrice.id = divBase.id + "_price";
+    pPrice.innerText = price + " €"; // TODO make mapping via switch between price and product name
 
     
     var pProductName = document.createElement("p");
@@ -273,13 +307,15 @@ function createItemForCart(productID, name){
 
     var pAmount = document.createElement("p");
     pAmount.innerText = "Amount: "
+    pAmount.style.marginRight = "12px";
     
     var inputAmount = document.createElement("input");
     inputAmount.type = "number";
     inputAmount.min = 1;
-    inputAmount.max = 3;
+    inputAmount.max = 10;
     inputAmount.value = 1;
-    
+    inputAmount.addEventListener("change", (event) => { onChangePrice(event, pPrice.id, price, divBase.id); });
+
     var divAmount = document.createElement("div");
     divAmount.appendChild(pAmount);
     divAmount.appendChild(inputAmount);
@@ -291,6 +327,9 @@ function createItemForCart(productID, name){
     divNameAmount.className = "pair-item-content";
     
     var divEmpty = document.createElement("div");
+    divEmpty.style.display = "flex";
+    divEmpty.style.flexGrow= "1";
+    divEmpty.style.height = "50px";
     var btnDelet = document.createElement("button");
     btnDelet.innerText = "Delete";
     btnDelet.addEventListener("click", function () { deletItem(divBase.id); }, false);
@@ -299,7 +338,10 @@ function createItemForCart(productID, name){
     divEmptyDelete.appendChild(divEmpty);
     divEmptyDelete.appendChild(btnDelet);
     divEmptyDelete.className = "pair-item-content";
-    divEmptyDelete.style.justifyContent = "flex-end";
+    divEmptyDelete.style.justifyContent = "space-between";
+    divEmptyDelete.style.flexGrow = "1";
+    divEmptyDelete.style.alignItems = "flex-end";
+    divEmptyDelete.style.marginLeft = "12px";
 
     var divNAED = document.createElement("div");
     divNAED.appendChild(divNameAmount);
@@ -322,29 +364,41 @@ function createItemForCart(productID, name){
 
 
 
+function onChangePrice(event, resultId, price, baseID) {
+    var res = document.getElementById(resultId);
+    res.innerText = pPrice.format(event.target.value * price); 
+    newItemCartValue(baseID, event.target.value * price);
+    valueItemSum();
+}
+
+
 function deletItem(id) {
     console.log(id);
     var element = document.getElementById(id);
     console.log(element);
     var parent = document.getElementById("itemCartList")
     parent.removeChild(element); 
+    newItemCartValue(id, 0.0);
+    valueItemSum();
     decreaseItemsInCart();
 };
 
 //Functions to add an item to the shopping cart
-function addCap1(){document.getElementById("itemCartList").appendChild(createItemForCart("1", "cap1"));}
-function addCap2(){document.getElementById("itemCartList").appendChild(createItemForCart("2", "cap2"));}
-function addCap3(){ document.getElementById("itemCartList").appendChild(createItemForCart("3", "cap3"));}
-function addCoat1(){ document.getElementById("itemCartList").appendChild(createItemForCart("1", "coat1"));}
-function addCoat2(){ document.getElementById("itemCartList").appendChild(createItemForCart("2", "coat2"));}
-function addGloves1(){ document.getElementById("itemCartList").appendChild(createItemForCart("1", "gloves1"));}
-function addGloves2(){ document.getElementById("itemCartList").appendChild(createItemForCart("2", "gloves2"));}
-function addPullover1(){ document.getElementById("itemCartList").appendChild(createItemForCart("1", "pullover1"));}
-function addPullover2(){ document.getElementById("itemCartList").appendChild(createItemForCart("2", "pullover2"));}
-function addShoes1(){ document.getElementById("itemCartList").appendChild(createItemForCart("1", "shoes1"));}
-function addTrousers1(){ document.getElementById("itemCartList").appendChild(createItemForCart("1", "trousers1"));}
-function addTrousers2(){ document.getElementById("itemCartList").appendChild(createItemForCart("2", "trousers2"));}
-function addTrousers3(){ document.getElementById("itemCartList").appendChild(createItemForCart("3", "trousers3"));}
+var divItemCartList = document.getElementById("itemCartList");
+function addCap1(){divItemCartList.appendChild(createItemForCart("1", "cap1", 9.99));}
+function addCap2(){divItemCartList.appendChild(createItemForCart("2", "cap2", 10.99));}
+function addCap3(){ divItemCartList.appendChild(createItemForCart("3", "cap3", 7.99));}
+function addCoat1(){ divItemCartList.appendChild(createItemForCart("1", "coat1", 34.99));}
+function addCoat2(){ divItemCartList.appendChild(createItemForCart("2", "coat2", 39.99));}
+function addGloves1(){ divItemCartList.appendChild(createItemForCart("1", "gloves1", 9.99));}
+function addGloves2(){ divItemCartList.appendChild(createItemForCart("2", "gloves2", 6.99));}
+function addPullover1(){ divItemCartList.appendChild(createItemForCart("1", "pullover1", 16.99));}
+function addPullover2(){ divItemCartList.appendChild(createItemForCart("2", "pullover2", 21.99));}
+function addShoes1(){ divItemCartList.appendChild(createItemForCart("1", "shoes1", 25.99));}
+function addTrousers1(){ divItemCartList.appendChild(createItemForCart("1", "trousers1", 15.99));}
+function addTrousers2(){ divItemCartList.appendChild(createItemForCart("2", "trousers2", 18.99));}
+function addTrousers3(){ divItemCartList.appendChild(createItemForCart("3", "trousers3", 30.99));}
+
 
 
 

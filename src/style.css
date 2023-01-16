@@ -342,10 +342,11 @@ body {
 
 .item-in-cart-base{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-end;
   border-bottom: #111 solid 2px;
   border-top: #111 solid 2px;
+  margin: 0px 32px 0px;
 }
 
 .pair-item-content {
@@ -363,4 +364,17 @@ body {
   max-width: 100px;
   max-height: 100px;
 
+}
+
+.price-sum{
+  margin: 0px 32px 0px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-right: 50px;
+  align-items: center;
+}
+
+.item-price-sum{
+  margin: 4px 16px 4px;
 }
