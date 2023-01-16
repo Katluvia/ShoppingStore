@@ -401,4 +401,3 @@ function addTrousers3(){ divItemCartList.appendChild(createItemForCart("3", "tro
 
 
 
-
