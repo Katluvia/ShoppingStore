@@ -12,7 +12,7 @@
   <!-- Navbar -->
   <div class="topnav">
     <a class="openbtn" onclick="openNav()"><img src="assets/menu.png" style="width: 50px; height: 50px" /></a>
-    <a onclick="showAll()"><img src="assets/logo.png" style="width: 50px; height: 50px" /> </a>
+    <a id="logoBtn" onclick="showAll()" onmouseenter="onLogoBtnEnter()" onmouseleave="onLogoBtnLeave()"><img id="logoImage" src="assets/logo.png" style="width: 205px; height: 50px" /> </a>
     <a id="cartBtn" onmouseenter="onCartBtnEnter()" onmouseleave="onCartBtnLeave()"><img id="cartItemImage" src="assets/shopping-cart.png" style="width: 50px; height: 50px" /></a>
     <p id="itemsInCart" style="margin-left: -20px; padding-top: 18px; padding-right: 20px; color: red; font-size: 20px; font-weight: bold;"></p>
     <a>Search ______</a>

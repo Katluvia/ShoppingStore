@@ -31,6 +31,17 @@ function onCartBtnLeave() {
 }
 
 
+//Hover over the logo
+function onLogoBtnEnter() {
+    var logoImage = document.getElementById("logoImage");
+    logoImage.src = "assets/logo-hover.png";
+}
+
+function onLogoBtnLeave() {
+    var logoImage = document.getElementById("logoImage");
+    logoImage.src = "assets/logo.png";
+}
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == cart_modal) {
